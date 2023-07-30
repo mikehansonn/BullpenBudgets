@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+}
+
+.class-header {
+    display: flex;
+    min-height: 6vh;
+    background-color: #3B3B3B;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.header-list {
+    list-style-type: none;
+    display: flex;
+}
+
+.website-logo {
+    height: 50px;
+    width: 50px;
+}

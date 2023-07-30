@@ -1,0 +1,36 @@
+body {
+    background-color: #ece5e5;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.horizontal-hold-divisions {
+    display: flex;
+    gap: 50px;
+}
+
+.single-division-list {
+    list-style-type: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.single-division-list h1 {
+    color: #9A8174;
+}
+
+.single-division-list h2 {
+    color: #050206;
+}
+
+
+.team-div {
+    display: flex;
+    gap: 10px;
+}
+
+.team-div img {
+    height: 30px;
+    width: 30px;
+}
