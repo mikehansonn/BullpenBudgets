@@ -7,13 +7,14 @@ body {
 
 .horizontal-hold-divisions {
     display: flex;
-    gap: 50px;
 }
 
 .single-division-list {
     list-style-type: none;
     padding-top: 20px;
     padding-bottom: 20px;
+    height: 50%;
+    width: 100%;
 }
 
 .single-division-list h1 {
@@ -33,4 +34,10 @@ body {
 .team-div img {
     height: 30px;
     width: 30px;
+}
+
+.home-hold-teams-and-divisions {
+    padding-top: 100px;
+    justify-content: center;
+    width: 80%;
 }
