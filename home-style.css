@@ -3,41 +3,60 @@ body {
     background-color: rgb(241, 239, 239);
 }
 
+.site-header {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 100px;
+    color: rgb(34, 34, 34);
+    text-align: center;
+}
+
 .teams-list-div {
     display: flex;
-	gap: 40px;
+	gap: 200px;
     align-items: center;
     justify-content: center;
 }
 
 .division-list {
-	padding-top: 200px;
     list-style: none;
-    grid-template-columns: repeat(5, 1fr);
-	display: grid;
-    width: 35%;
+    display: block;
+    width: 500px;
 	height: 45vh;
-    gap: 0px;
     padding-left: 0;
 	justify-content:center;
 	align-items: center;
 }
 
 .class-item {
-    height: 100px;
-    width: 100px; 
-    background-color: #c9cbcc;
+    height: 120px;
+    width: 500px; 
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	border-radius: 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 2px solid rgb(241, 239, 239);
+    border-left: 2px solid rgb(241, 239, 239);
+    gap: 40px;
+    transition: background-color 0.3s ease;
 }
 
 .class-item:hover {
-	background-color: #898a8b;
+    background-color: rgb(204, 204, 204);
+    border-right: 2px solid black;
+    border-left: 2px solid black;
 }
 
 .logo-image {
     width: 75px;
     height: 75px;
+    padding-left: 10px;
+}
+
+.team-name {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: rgb(34, 34, 34);
 }

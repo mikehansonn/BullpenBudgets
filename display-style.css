@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    background-color: rgb(241, 239, 239);
+}
+
+.whole-container {
+    padding-left: 20px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.next-to-logo-container {
+    align-items: center;
+    justify-content: center;
+}
+
+.header-container h1 {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-size: 75px;
+    font-style: normal;
+    color: rgb(34, 34, 34);
+}
+
+.record-container {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.emoji-container {
+    display: flex;
+    gap: 10px;
+}
+
+.record-container h1 {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-size: 50px;
+    font-style: normal;
+    color: rgb(34, 34, 34);
+}
+
+.team-logo {
+    height: 200px;
+    width: 200px;
+}

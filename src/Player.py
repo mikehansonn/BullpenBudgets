@@ -8,6 +8,7 @@ class Player:
         self.name = name
         self.all_outings = all_outings  # holds pitch count and ordinal date, 
         self.past_days = [] # holds the pitch total from 3, 7, and 14 days ago
+        self.calculate_past_days()
 
 
     def add_outing(self, outing):
