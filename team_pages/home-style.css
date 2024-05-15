@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    background-color: rgb(241, 239, 239);
+}
+
+.site-header {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 90px;
+    padding-top: 50px;
+    color: rgb(34, 34, 34);
+    text-align: center;
+}
+
+.teams-list-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teams-list-div-center {
+    display: flex;
+	gap: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+.division-header {
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    margin: 0;
+    font-weight: 500;
+    font-style: normal;
+    color: rgb(34, 34, 34);
+    display: none;
+    transition: height 0.3s ease;
+}
+
+.header-hold {
+    height: 50px;
+    margin: 0;
+}
+
+@media (max-width: 1350px) {
+    .site-header {
+        font-size: 60px;    
+    }
+
+    .team-list-div-double {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5%;
+    }
+
+    .teams-list-div-center {
+        display: block;
+    }
+
+    .division-list {
+        width: 80%;
+    }
+
+    .class-item {
+        height: 45px;
+        width: 80%;
+    }
+}
+
+@media (max-width: 875px) {
+    .site-header {
+        font-size: 40px;    
+    }
+
+    .team-list-div-double {
+        display: block;
+    }
+
+    .teams-list-div-center {
+        display: block;
+    }
+
+    .division-list {
+        width: 80%;
+    }
+
+    .class-item {
+        height: 45px;
+        width: 80%;
+    }
+
+    .mobile-hamburger {
+        display: block;
+    }
+}
+
+.division-name-list:hover .division-header {
+    display: block;
+}
+
+.division-list {
+    list-style: none;
+    display: block;
+    width: 400px;
+    margin: 0;
+    padding: 0;
+	justify-content:center;
+	align-items: center;
+}
+
+.class-item {
+    height: 60px;
+    width: 400px; 
+	display: flex;
+	align-items: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 2px solid rgb(241, 239, 239);
+    border-left: 2px solid rgb(241, 239, 239);
+    gap: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.class-item:hover {
+    background-color: rgb(204, 204, 204);
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    padding-left: 10px;
+}
+
+.team-name {
+    font-family: "Kanit", sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    font-style: normal;
+    color: rgb(34, 34, 34);
+}
+
+.extra-space {
+    height: 50px;
+}

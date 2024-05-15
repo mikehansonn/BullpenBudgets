@@ -1,1 +1,158 @@
-[{"name": "Tayler Saucedo", "all_outings": [["17", 738949], ["17", 738949], ["17", 738949]], "past_days": [51, 51, 51]}, {"name": "Trent Thornton", "all_outings": [["4", 738949], ["4", 738949], ["4", 738949]], "past_days": [12, 12, 12]}, {"name": "Gabe Speier", "all_outings": [["12", 738949], ["12", 738949], ["12", 738949]], "past_days": [36, 36, 36]}, {"name": "Isaiah Campbell", "all_outings": [["21", 738949], ["21", 738949], ["21", 738949]], "past_days": [63, 63, 63]}, {"name": "Matt Brash", "all_outings": [["17", 738949], ["17", 738949], ["17", 738949]], "past_days": [51, 51, 51]}, {"name": "Justin Topa", "all_outings": [["13", 738949], ["13", 738949], ["13", 738949]], "past_days": [39, 39, 39]}]
+[
+  {
+    "name": "Andr\u00e9s Mu\u00f1oz",
+    "all_outings": [
+      [
+        "24",
+        738986
+      ],
+      [
+        "10",
+        738988
+      ],
+      [
+        "24",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      58
+    ]
+  },
+  {
+    "name": "Ryne Stanek",
+    "all_outings": [
+      [
+        "17",
+        738986
+      ],
+      [
+        "21",
+        738988
+      ],
+      [
+        "28",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      66
+    ]
+  },
+  {
+    "name": "Trent Thornton",
+    "all_outings": [
+      [
+        "20",
+        738988
+      ],
+      [
+        "10",
+        738990
+      ],
+      [
+        "17",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      17,
+      47
+    ]
+  },
+  {
+    "name": "Tyson Miller",
+    "all_outings": [
+      [
+        "22",
+        738989
+      ],
+      [
+        "9",
+        738991
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      31
+    ]
+  },
+  {
+    "name": "Austin Voth",
+    "all_outings": [
+      [
+        "21",
+        738989
+      ],
+      [
+        "15",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      15,
+      36
+    ]
+  },
+  {
+    "name": "Brett de Geus",
+    "all_outings": [
+      [
+        "14",
+        738990
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      14
+    ]
+  },
+  {
+    "name": "Gabe Speier",
+    "all_outings": [
+      [
+        "14",
+        738990
+      ],
+      [
+        "11",
+        738991
+      ],
+      [
+        "15",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      15,
+      40
+    ]
+  },
+  {
+    "name": "Tayler Saucedo",
+    "all_outings": [
+      [
+        "13",
+        738991
+      ],
+      [
+        "5",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      18
+    ]
+  }
+]

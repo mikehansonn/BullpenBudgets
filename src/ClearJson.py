@@ -6,5 +6,5 @@ for filename in os.listdir(r'C:\Individual_Projects\BullpenBudget\src\complete_d
         file_path = os.path.join('C:\Individual_Projects\BullpenBudget\src\complete_data', filename)
         
         with open(file_path, "w") as file:
-                file.write("[]")
+            file.write("[]")
 

@@ -1,1 +1,212 @@
-[{"name": "Louie Varland", "all_outings": [["11", 738949], ["11", 738949], ["11", 738949]], "past_days": [33, 33, 33]}, {"name": "Caleb Thielbar", "all_outings": [["20", 738949], ["20", 738949], ["20", 738949]], "past_days": [60, 60, 60]}, {"name": "Jhoan Duran", "all_outings": [["34", 738949], ["34", 738949], ["34", 738949]], "past_days": [102, 102, 102]}, {"name": "Emilio Pagan", "all_outings": [["10", 738949], ["10", 738949], ["10", 738949]], "past_days": [30, 30, 30]}, {"name": "Josh Winder", "all_outings": [["35", 738949], ["35", 738949], ["35", 738949]], "past_days": [105, 105, 105]}, {"name": "Dylan Floro", "all_outings": [["2", 738949], ["2", 738949], ["2", 738949]], "past_days": [6, 6, 6]}]
+[
+  {
+    "name": "Kody Funderburk",
+    "all_outings": [
+      [
+        "11",
+        738986
+      ],
+      [
+        "15",
+        738988
+      ],
+      [
+        "17",
+        738989
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      43
+    ]
+  },
+  {
+    "name": "Jorge Alcala",
+    "all_outings": [
+      [
+        "6",
+        738986
+      ],
+      [
+        "22",
+        738989
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      28
+    ]
+  },
+  {
+    "name": "Brock Stewart",
+    "all_outings": [
+      [
+        "13",
+        738986
+      ],
+      [
+        "19",
+        738989
+      ],
+      [
+        "10",
+        738990
+      ],
+      [
+        "17",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      17,
+      59
+    ]
+  },
+  {
+    "name": "Griffin Jax",
+    "all_outings": [
+      [
+        "16",
+        738986
+      ],
+      [
+        "11",
+        738989
+      ],
+      [
+        "18",
+        738990
+      ],
+      [
+        "10",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      10,
+      55
+    ]
+  },
+  {
+    "name": "Steven Okert",
+    "all_outings": [
+      [
+        "16",
+        738986
+      ],
+      [
+        "13",
+        738989
+      ],
+      [
+        "18",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      18,
+      47
+    ]
+  },
+  {
+    "name": "Michael Tonkin",
+    "all_outings": [
+      [
+        "48",
+        738988
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      48
+    ]
+  },
+  {
+    "name": "Jay Jackson",
+    "all_outings": [
+      [
+        "13",
+        738988
+      ],
+      [
+        "10",
+        738989
+      ],
+      [
+        "38",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      61
+    ]
+  },
+  {
+    "name": "Willi Castro",
+    "all_outings": [
+      [
+        "6",
+        738988
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      6
+    ]
+  },
+  {
+    "name": "Cole Sands",
+    "all_outings": [
+      [
+        "28",
+        738989
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      28
+    ]
+  },
+  {
+    "name": "Caleb Thielbar",
+    "all_outings": [
+      [
+        "13",
+        738990
+      ],
+      [
+        "12",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      25
+    ]
+  },
+  {
+    "name": "Matt Bowman",
+    "all_outings": [
+      [
+        "46",
+        738991
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      46
+    ]
+  }
+]

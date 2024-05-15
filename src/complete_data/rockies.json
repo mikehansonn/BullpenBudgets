@@ -1,1 +1,154 @@
-[{"name": "Gavin Hollowell", "all_outings": [["20", 738949], ["20", 738949], ["20", 738949]], "past_days": [60, 60, 60]}, {"name": "Brent Suter", "all_outings": [["22", 738949], ["22", 738949], ["22", 738949]], "past_days": [66, 66, 66]}, {"name": "Victor Vodnik", "all_outings": [["12", 738949], ["12", 738949], ["12", 738949]], "past_days": [36, 36, 36]}, {"name": "Jake Bird", "all_outings": [["23", 738949], ["23", 738949], ["23", 738949]], "past_days": [69, 69, 69]}, {"name": "Nick Mears", "all_outings": [["13", 738949], ["13", 738949], ["13", 738949]], "past_days": [39, 39, 39]}, {"name": "Justin Lawrence", "all_outings": [["15", 738949], ["15", 738949], ["15", 738949]], "past_days": [45, 45, 45]}, {"name": "Matt Koch", "all_outings": [["21", 738949], ["21", 738949], ["21", 738949]], "past_days": [63, 63, 63]}]
+[
+  {
+    "name": "Jake Bird",
+    "all_outings": [
+      [
+        "14",
+        738986
+      ],
+      [
+        "20",
+        738989
+      ],
+      [
+        "4",
+        738991
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      38
+    ]
+  },
+  {
+    "name": "Nick Mears",
+    "all_outings": [
+      [
+        "21",
+        738986
+      ],
+      [
+        "13",
+        738991
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      34
+    ]
+  },
+  {
+    "name": "Justin Lawrence",
+    "all_outings": [
+      [
+        "25",
+        738986
+      ],
+      [
+        "11",
+        738991
+      ],
+      [
+        "15",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      15,
+      51
+    ]
+  },
+  {
+    "name": "Peter Lambert",
+    "all_outings": [
+      [
+        "29",
+        738988
+      ],
+      [
+        "26",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      26,
+      55
+    ]
+  },
+  {
+    "name": "Tyler Kinley",
+    "all_outings": [
+      [
+        "18",
+        738988
+      ],
+      [
+        "18",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      36
+    ]
+  },
+  {
+    "name": "Victor Vodnik",
+    "all_outings": [
+      [
+        "19",
+        738989
+      ],
+      [
+        "21",
+        738990
+      ],
+      [
+        "26",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      66
+    ]
+  },
+  {
+    "name": "Jalen Beeks",
+    "all_outings": [
+      [
+        "17",
+        738990
+      ],
+      [
+        "14",
+        738991
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      31
+    ]
+  },
+  {
+    "name": "Anthony Molina",
+    "all_outings": [
+      [
+        "24",
+        738990
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      24
+    ]
+  }
+]

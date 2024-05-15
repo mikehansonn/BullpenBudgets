@@ -1,1 +1,198 @@
-[{"name": "Steven Okert", "all_outings": [["30", 738949], ["30", 738949], ["30", 738949]], "past_days": [90, 90, 90]}, {"name": "Bryan Hoeing", "all_outings": [["69", 738949], ["69", 738949], ["69", 738949]], "past_days": [207, 207, 207]}, {"name": "George Soriano", "all_outings": [["37", 738949], ["37", 738949], ["37", 738949]], "past_days": [111, 111, 111]}, {"name": "Johnny Cueto", "all_outings": [["6", 738949], ["6", 738949], ["6", 738949]], "past_days": [18, 18, 18]}, {"name": "Jacob Stallings", "all_outings": [["30", 738949], ["30", 738949], ["30", 738949]], "past_days": [90, 90, 90]}, {"name": "A.J. Puk", "all_outings": [["22", 738949], ["22", 738949], ["22", 738949]], "past_days": [66, 66, 66]}, {"name": "Matt Moore", "all_outings": [["19", 738949], ["19", 738949], ["19", 738949]], "past_days": [57, 57, 57]}, {"name": "Andrew Nardi", "all_outings": [["13", 738949], ["13", 738949], ["13", 738949]], "past_days": [39, 39, 39]}, {"name": "Tanner Scott", "all_outings": [["12", 738949], ["12", 738949], ["12", 738949]], "past_days": [36, 36, 36]}]
+[
+  {
+    "name": "Bryan Hoeing",
+    "all_outings": [
+      [
+        "17",
+        738986
+      ],
+      [
+        "25",
+        738991
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      42
+    ]
+  },
+  {
+    "name": "Andrew Nardi",
+    "all_outings": [
+      [
+        "16",
+        738986
+      ],
+      [
+        "17",
+        738988
+      ],
+      [
+        "12",
+        738990
+      ],
+      [
+        "19",
+        738991
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      64
+    ]
+  },
+  {
+    "name": "Anthony Bender",
+    "all_outings": [
+      [
+        "14",
+        738986
+      ],
+      [
+        "15",
+        738989
+      ],
+      [
+        "17",
+        738990
+      ],
+      [
+        "23",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      23,
+      69
+    ]
+  },
+  {
+    "name": "Tanner Scott",
+    "all_outings": [
+      [
+        "34",
+        738986
+      ],
+      [
+        "12",
+        738989
+      ],
+      [
+        "26",
+        738990
+      ],
+      [
+        "15",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      87
+    ]
+  },
+  {
+    "name": "George Soriano",
+    "all_outings": [
+      [
+        "25",
+        738988
+      ],
+      [
+        "23",
+        738991
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      48
+    ]
+  },
+  {
+    "name": "Burch Smith",
+    "all_outings": [
+      [
+        "16",
+        738988
+      ],
+      [
+        "20",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      36
+    ]
+  },
+  {
+    "name": "Matt Andriese",
+    "all_outings": [
+      [
+        "26",
+        738988
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      26
+    ]
+  },
+  {
+    "name": "Calvin Faucher",
+    "all_outings": [
+      [
+        "16",
+        738989
+      ],
+      [
+        "28",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      44
+    ]
+  },
+  {
+    "name": "Sixto S\u00e1nchez",
+    "all_outings": [
+      [
+        "16",
+        738990
+      ],
+      [
+        "21",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      21,
+      37
+    ]
+  },
+  {
+    "name": "Declan Cronin",
+    "all_outings": [
+      [
+        "26",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      26,
+      26
+    ]
+  }
+]

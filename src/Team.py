@@ -1,12 +1,11 @@
 import json
 import Player as ply
-from datetime import datetime
 
 class Team:
-    def __init__(self, filename, players):
+    def __init__(self, filename, players, ordinal):
         self.filename = filename
         self.players = self.read_players(players)
-
+        self.ordinal = ordinal
 
     def read_players(self, players):
         team_players = []
@@ -24,12 +23,10 @@ class Team:
         with open(self.filename, 'w') as file:
             for player in self.players:
                 full_write.append(player.json_object())
-            json.dump(full_write, file)
+            json.dump(full_write, file, indent=2)
             
     def read_new_data(self, new_stats):
-        print("new team")
-        current_date = datetime.now()
-        current_ordinal_date = current_date.toordinal()
+        current_ordinal_date = self.ordinal
 
         # Check the starter exception
         for i in range(len(self.players)):

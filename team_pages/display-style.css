@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    background-color: rgb(241, 239, 239);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-top: 100px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.next-to-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.next-to-logo-container h1 {
+    margin: 0;
+    line-height: 1;
+}
+
+.header-container h1 {
+    font-family: "Kanit", sans-serif;
+    font-weight: 500;
+    font-size: 75px;
+    font-style: normal;
+    color: rgb(34, 34, 34);
+    line-height: 1;
+    padding-bottom: 10px;
+}
+
+.team-logo {
+    height: 200px;
+    width: 200px;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* table stuff */
+.table {
+    width: 95%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.table th,
+.table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-family: "Kanit", sans-serif;
+}
+.table th {
+    background-color: rgb(34, 34, 34);
+    border: 1px solid rgb(34, 34, 34);
+    box-shadow: 0px 2px 3px -2px rgba(0, 0, 0, 0.3);
+    color: white;
+    font-weight: bold;
+}
+.table tbody tr:nth-child(even) {
+    background-color: #e4e4e4;
+}
+.table tbody tr {
+    border-bottom: 1px solid #c2c2c2;
+    border-right: 1px solid #c2c2c2;
+    border-left: 1px solid #c2c2c2;
+}
+
+/* star icon stuff */
+.black-star {
+    height: 40px;
+    width: 40px;
+}
+
+.fill-star {
+    height: 40px;
+    width: 40px;
+    display: none;
+}
+
+.star-holder {
+    height: 55px;
+    width: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s ease-in-out;
+}
+
+.star-holder.clicked {
+    transform: scale(1.1); /* Adjust the scale factor as needed */
+}
+
+.star-holder:hover {
+    background-color: rgb(227, 227, 227);
+    border-radius: 50%;
+    cursor: pointer;
+}

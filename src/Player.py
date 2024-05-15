@@ -28,7 +28,7 @@ class Player:
         fourteen = 0
 
         for outing in self.all_outings:  # outing is [count, date]
-            difference = current_ordinal_date - int(outing[1])
+            difference = current_ordinal_date - outing[1]
 
             pitches = int(outing[0])
             if difference <= 14:

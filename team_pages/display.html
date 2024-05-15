@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bullpen Budgets</title>
+    <link rel="icon" type="image/x-icon" href="bpb.png">
+    <link rel="stylesheet" href="display-style.css"> 
+    <link rel="stylesheet" href="favorite-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="favorite-handle.js"></script>
+    <script src="render-favorites.js"></script>
+    <script src="handle-sort-clear.js"></script>
+    <script src="display-dropdown.js"></script>
+</head>
+<body>
+    <a href="home.html"><img class="home" src="bpb.png"></a>
+    <div class="clear-favorites">
+        <svg onclick="clearFavorites()" class="trash-can block-element" xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="#222222" viewBox="0 0 256 256"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path></svg>
+        <svg onclick="sortFavorites()" class="funnel block-element" xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="#222222" viewBox="0 0 256 256"><path d="M230.6,49.53A15.81,15.81,0,0,0,216,40H40A16,16,0,0,0,28.19,66.76l.08.09L96,139.17V216a16,16,0,0,0,24.87,13.32l32-21.34A16,16,0,0,0,160,194.66V139.17l67.74-72.32.08-.09A15.8,15.8,0,0,0,230.6,49.53ZM40,56h0Zm106.18,74.58A8,8,0,0,0,144,136v58.66L112,216V136a8,8,0,0,0-2.16-5.47L40,56H216Z"></path></svg>
+    </div>
+    <div class="whole-container">
+        <div class="favorite-bar"></div>
+        <a class="mobile-hamburger"><svg class="burger-svg" onclick="event.stopPropagation(); dropdown();" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#222222" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
+            <div class="favorite-bar2" id="favoriteList"></div>
+        </a>
+        <div class="header-container">
+            <img class="team-logo" id="teamLogo">
+            <div class="next-to-logo-container">
+                <h1 id="teamName"></h1>
+                <a class="star-holder" id="starHolder" onclick="changeStar()">
+                    <svg class="black-star" id="blackID" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#222203" viewBox="0 0 256 256">
+                        <path d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z"></path>
+                    </svg>
+                    <svg class="fill-star" id="fillID" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#e05353" viewBox="0 0 256 256">
+                        <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>d1</th>
+                        <th>d2</th>
+                        <th>d3</th>
+                        <th>d4</th>
+                        <th>d5</th>
+                        <th>L3</th>
+                        <th>L7</th>
+                        <th>L14</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Name">Luis Garc&iacute;a</td>
+                        <td data-label="d1">Data 1</td>
+                        <td data-label="d2">Data 2</td>
+                        <td data-label="d3">Data 3</td>
+                        <td data-label="d4">Data 4</td>
+                        <td data-label="d5">Data 5</td>
+                        <td data-label="L3">Data L3</td>
+                        <td data-label="L7">Data L7</td>
+                        <td data-label="L14">Data L14</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Alice</td>
+                        <td data-label="d1">Data 1</td>
+                        <td data-label="d2">Data 2</td>
+                        <td data-label="d3">Data 3</td>
+                        <td data-label="d4">Data 4</td>
+                        <td data-label="d5">Data 5</td>
+                        <td data-label="L3">Data L3</td>
+                        <td data-label="L7">Data L7</td>
+                        <td data-label="L14">Data L14</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Alice</td>
+                        <td data-label="d1">Data 1</td>
+                        <td data-label="d2">Data 2</td>
+                        <td data-label="d3">Data 3</td>
+                        <td data-label="d4">Data 4</td>
+                        <td data-label="d5">Data 5</td>
+                        <td data-label="L3">Data L3</td>
+                        <td data-label="L7">Data L7</td>
+                        <td data-label="L14">Data L14</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Alice</td>
+                        <td data-label="d1">Data 1</td>
+                        <td data-label="d2">Data 2</td>
+                        <td data-label="d3">Data 3</td>
+                        <td data-label="d4">Data 4</td>
+                        <td data-label="d5">Data 5</td>
+                        <td data-label="L3">Data L3</td>
+                        <td data-label="L7">Data L7</td>
+                        <td data-label="L14">Data L14</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Alice</td>
+                        <td data-label="d1">Data 1</td>
+                        <td data-label="d2">Data 2</td>
+                        <td data-label="d3">Data 3</td>
+                        <td data-label="d4">Data 4</td>
+                        <td data-label="d5">Data 5</td>
+                        <td data-label="L3">Data L3</td>
+                        <td data-label="L7">Data L7</td>
+                        <td data-label="L14">Data L14</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Alice</td>
+                        <td data-label="d1">Data 1</td>
+                        <td data-label="d2">Data 2</td>
+                        <td data-label="d3">Data 3</td>
+                        <td data-label="d4">Data 4</td>
+                        <td data-label="d5">Data 5</td>
+                        <td data-label="L3">Data L3</td>
+                        <td data-label="L7">Data L7</td>
+                        <td data-label="L14">Data L14</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Alice</td>
+                        <td data-label="d1">Data 1</td>
+                        <td data-label="d2">Data 2</td>
+                        <td data-label="d3">Data 3</td>
+                        <td data-label="d4">Data 4</td>
+                        <td data-label="d5">Data 5</td>
+                        <td data-label="L3">Data L3</td>
+                        <td data-label="L7">Data L7</td>
+                        <td data-label="L14">Data L14</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Name">Alice</td>
+                        <td data-label="d1">Data 1</td>
+                        <td data-label="d2">Data 2</td>
+                        <td data-label="d3">Data 3</td>
+                        <td data-label="d4">Data 4</td>
+                        <td data-label="d5">Data 5</td>
+                        <td data-label="L3">Data L3</td>
+                        <td data-label="L7">Data L7</td>
+                        <td data-label="L14">Data L14</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

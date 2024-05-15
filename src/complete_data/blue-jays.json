@@ -1,1 +1,204 @@
-[{"name": "Tim Mayza", "all_outings": [["13", 738949], ["13", 738949], ["13", 738949]], "past_days": [39, 39, 39]}, {"name": "Nate Pearson", "all_outings": [["43", 738949], ["43", 738949], ["43", 738949]], "past_days": [129, 129, 129]}, {"name": "Jordan Hicks", "all_outings": [["25", 738949], ["25", 738949], ["25", 738949]], "past_days": [75, 75, 75]}, {"name": "Jordan Romano", "all_outings": [["24", 738949], ["19", 738949], ["24", 738949], ["19", 738949], ["24", 738949], ["19", 738949]], "past_days": [129, 129, 129]}, {"name": "Trevor Richards", "all_outings": [["9", 738949], ["9", 738949], ["9", 738949]], "past_days": [27, 27, 27]}, {"name": "Chad Green", "all_outings": [["32", 738949], ["32", 738949], ["32", 738949]], "past_days": [96, 96, 96]}, {"name": "Genesis Cabrera", "all_outings": [["6", 738949], ["6", 738949], ["6", 738949]], "past_days": [18, 18, 18]}, {"name": "Yimi Garcia", "all_outings": [["13", 738949], ["13", 738949], ["13", 738949]], "past_days": [39, 39, 39]}]
+[
+  {
+    "name": "Nate Pearson",
+    "all_outings": [
+      [
+        "16",
+        738986
+      ],
+      [
+        "16",
+        738990
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      32
+    ]
+  },
+  {
+    "name": "Yimi Garc\u00eda",
+    "all_outings": [
+      [
+        "21",
+        738986
+      ],
+      [
+        "12",
+        738989
+      ],
+      [
+        "9",
+        738991
+      ],
+      [
+        "11",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      53
+    ]
+  },
+  {
+    "name": "Tim Mayza",
+    "all_outings": [
+      [
+        "17",
+        738986
+      ],
+      [
+        "9",
+        738989
+      ],
+      [
+        "6",
+        738991
+      ],
+      [
+        "28",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      28,
+      60
+    ]
+  },
+  {
+    "name": "Mitch White",
+    "all_outings": [
+      [
+        "13",
+        738986
+      ],
+      [
+        "41",
+        738988
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      54
+    ]
+  },
+  {
+    "name": "Paolo Espino",
+    "all_outings": [
+      [
+        "53",
+        738988
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      53
+    ]
+  },
+  {
+    "name": "G\u00e9nesis Cabrera",
+    "all_outings": [
+      [
+        "6",
+        738988
+      ],
+      [
+        "13",
+        738990
+      ],
+      [
+        "29",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      29,
+      48
+    ]
+  },
+  {
+    "name": "Bowden Francis",
+    "all_outings": [
+      [
+        "46",
+        738989
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      46
+    ]
+  },
+  {
+    "name": "Chad Green",
+    "all_outings": [
+      [
+        "18",
+        738989
+      ],
+      [
+        "17",
+        738991
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      35
+    ]
+  },
+  {
+    "name": "Trevor Richards",
+    "all_outings": [
+      [
+        "26",
+        738992
+      ],
+      [
+        "14",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      14,
+      40
+    ]
+  },
+  {
+    "name": "Jordan Romano",
+    "all_outings": [
+      [
+        "11",
+        738992
+      ]
+    ],
+    "past_days": [
+      0,
+      0,
+      11
+    ]
+  },
+  {
+    "name": "Erik Swanson",
+    "all_outings": [
+      [
+        "19",
+        738993
+      ]
+    ],
+    "past_days": [
+      0,
+      19,
+      19
+    ]
+  }
+]
