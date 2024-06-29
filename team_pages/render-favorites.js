@@ -1,4 +1,7 @@
 window.onload = (event1) => {
+    if(localStorage.getItem("fav") == null) {
+        localStorage.setItem("fav", '');
+    }
     startRender();
 };  
 
@@ -83,7 +86,7 @@ function newFavorite2(name, logo) {
 
 function getMap() {
     var map = new Map([
-        [ "dbacks"    , "mlb-arizona-diamondbacks-logo-300x300.png"   ],
+        [ "diamondbacks"    , "mlb-arizona-diamondbacks-logo-300x300.png"   ],
         [  "braves"    , "mlb-atlanta-braves-logo-300x300.png"        ],   
         [  "orioles"   , "mlb-baltimore-orioles-logo-300x300.png"     ],
         [  "red-sox"   , "mlb-boston-red-sox-logo-300x300.png"        ],
@@ -119,7 +122,7 @@ function getMap() {
 
 function getNameMap() {
     var map = new Map([
-        ["dbacks", "Arizona Diamondbacks"],
+        ["diamondbacks", "Arizona Diamondbacks"],
         ["braves", "Atlanta Braves"],
         ["orioles", "Baltimore Orioles"],
         ["red-sox", "Boston Red Sox"],

@@ -14,6 +14,11 @@
     <script src="render-favorites.js"></script>
     <script src="handle-sort-clear.js"></script>
     <script src="display-dropdown.js"></script>
+    <script src="color-calender.js"></script>
+    <script src="read-team-json.js"></script>
+    <script src="print-table-dates.js"></script>
+    <script src="ordinal-dates.js"></script>
+    <script src="sort-table.js"></script>
 </head>
 <body>
     <a href="home.html"><img class="home" src="bpb.png"></a>
@@ -26,126 +31,42 @@
         <a class="mobile-hamburger"><svg class="burger-svg" onclick="event.stopPropagation(); dropdown();" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#222222" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
             <div class="favorite-bar2" id="favoriteList"></div>
         </a>
-        <div class="header-container">
-            <img class="team-logo" id="teamLogo">
-            <div class="next-to-logo-container">
-                <h1 id="teamName"></h1>
-                <a class="star-holder" id="starHolder" onclick="changeStar()">
-                    <svg class="black-star" id="blackID" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#222203" viewBox="0 0 256 256">
-                        <path d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z"></path>
-                    </svg>
-                    <svg class="fill-star" id="fillID" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#e05353" viewBox="0 0 256 256">
-                        <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
-                    </svg>
-                </a>
-            </div>
-        </div>
-        <div class="table-container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>d1</th>
-                        <th>d2</th>
-                        <th>d3</th>
-                        <th>d4</th>
-                        <th>d5</th>
-                        <th>L3</th>
-                        <th>L7</th>
-                        <th>L14</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="Name">Luis Garc&iacute;a</td>
-                        <td data-label="d1">Data 1</td>
-                        <td data-label="d2">Data 2</td>
-                        <td data-label="d3">Data 3</td>
-                        <td data-label="d4">Data 4</td>
-                        <td data-label="d5">Data 5</td>
-                        <td data-label="L3">Data L3</td>
-                        <td data-label="L7">Data L7</td>
-                        <td data-label="L14">Data L14</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Alice</td>
-                        <td data-label="d1">Data 1</td>
-                        <td data-label="d2">Data 2</td>
-                        <td data-label="d3">Data 3</td>
-                        <td data-label="d4">Data 4</td>
-                        <td data-label="d5">Data 5</td>
-                        <td data-label="L3">Data L3</td>
-                        <td data-label="L7">Data L7</td>
-                        <td data-label="L14">Data L14</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Alice</td>
-                        <td data-label="d1">Data 1</td>
-                        <td data-label="d2">Data 2</td>
-                        <td data-label="d3">Data 3</td>
-                        <td data-label="d4">Data 4</td>
-                        <td data-label="d5">Data 5</td>
-                        <td data-label="L3">Data L3</td>
-                        <td data-label="L7">Data L7</td>
-                        <td data-label="L14">Data L14</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Alice</td>
-                        <td data-label="d1">Data 1</td>
-                        <td data-label="d2">Data 2</td>
-                        <td data-label="d3">Data 3</td>
-                        <td data-label="d4">Data 4</td>
-                        <td data-label="d5">Data 5</td>
-                        <td data-label="L3">Data L3</td>
-                        <td data-label="L7">Data L7</td>
-                        <td data-label="L14">Data L14</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Alice</td>
-                        <td data-label="d1">Data 1</td>
-                        <td data-label="d2">Data 2</td>
-                        <td data-label="d3">Data 3</td>
-                        <td data-label="d4">Data 4</td>
-                        <td data-label="d5">Data 5</td>
-                        <td data-label="L3">Data L3</td>
-                        <td data-label="L7">Data L7</td>
-                        <td data-label="L14">Data L14</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Alice</td>
-                        <td data-label="d1">Data 1</td>
-                        <td data-label="d2">Data 2</td>
-                        <td data-label="d3">Data 3</td>
-                        <td data-label="d4">Data 4</td>
-                        <td data-label="d5">Data 5</td>
-                        <td data-label="L3">Data L3</td>
-                        <td data-label="L7">Data L7</td>
-                        <td data-label="L14">Data L14</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Alice</td>
-                        <td data-label="d1">Data 1</td>
-                        <td data-label="d2">Data 2</td>
-                        <td data-label="d3">Data 3</td>
-                        <td data-label="d4">Data 4</td>
-                        <td data-label="d5">Data 5</td>
-                        <td data-label="L3">Data L3</td>
-                        <td data-label="L7">Data L7</td>
-                        <td data-label="L14">Data L14</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Name">Alice</td>
-                        <td data-label="d1">Data 1</td>
-                        <td data-label="d2">Data 2</td>
-                        <td data-label="d3">Data 3</td>
-                        <td data-label="d4">Data 4</td>
-                        <td data-label="d5">Data 5</td>
-                        <td data-label="L3">Data L3</td>
-                        <td data-label="L7">Data L7</td>
-                        <td data-label="L14">Data L14</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="main-flex-center">
+            <div class="main-container-center">
+                <div class="header-container">
+                    <img class="team-logo" id="teamLogo">
+                    <div class="next-to-logo-container">
+                        <h1 class="team-name" id="teamName" style="padding: 0;"></h1>
+                        <a class="star-holder" id="starHolder" onclick="changeStar()">
+                            <svg class="black-star" id="blackID" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#222203" viewBox="0 0 256 256">
+                                <path d="M239.2,97.29a16,16,0,0,0-13.81-11L166,81.17,142.72,25.81h0a15.95,15.95,0,0,0-29.44,0L90.07,81.17,30.61,86.32a16,16,0,0,0-9.11,28.06L66.61,153.8,53.09,212.34a16,16,0,0,0,23.84,17.34l51-31,51.11,31a16,16,0,0,0,23.84-17.34l-13.51-58.6,45.1-39.36A16,16,0,0,0,239.2,97.29Zm-15.22,5-45.1,39.36a16,16,0,0,0-5.08,15.71L187.35,216v0l-51.07-31a15.9,15.9,0,0,0-16.54,0l-51,31h0L82.2,157.4a16,16,0,0,0-5.08-15.71L32,102.35a.37.37,0,0,1,0-.09l59.44-5.14a16,16,0,0,0,13.35-9.75L128,32.08l23.2,55.29a16,16,0,0,0,13.35,9.75L224,102.26S224,102.32,224,102.33Z"></path>
+                            </svg>
+                            <svg class="fill-star" id="fillID" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#e05353" viewBox="0 0 256 256">
+                                <path d="M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="table" id="sortableTable">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0)" style="text-align: left;">Name</th>
+                                <th onclick="sortTable(1)" id="date1"></th>
+                                <th onclick="sortTable(2)" id="date2"></th>
+                                <th onclick="sortTable(3)" id="date3"></th>
+                                <th onclick="sortTable(4)" id="date4"></th>
+                                <th onclick="sortTable(5)" id="date5"></th>
+                                <th onclick="sortTable(6)">L3</th>
+                                <th onclick="sortTable(7)">L7</th>
+                                <th onclick="sortTable(8)">L14</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                        </tbody>
+                    </table>
+                </div>
+           </div>
         </div>
     </div>
 </body>

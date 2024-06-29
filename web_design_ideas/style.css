@@ -1,68 +1,80 @@
-/* Dropdown Button */
-.hamburger-icon {
-    cursor: pointer;
-    padding: 2px;
-    border-radius: 10px;
-}
-  
-  /* Dropdown button on hover & focus */
-.hamburger-icon:hover, .hamburger-icon:focus {
-    background-color: #dddddd
-}
-  
-  /* The container <div> - needed to position the dropdown content */
-.drop-down-holder {
-    position: relative;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    left: 50%;
+body {
+  margin: 0;
 }
 
-/* Apply animation to the dropdown */
-.mobile-list {
-  overflow: hidden; /* Hide the overflow content */
-  background-color: #f1f1f1;
-  min-width: 40px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-top: 0; /* No padding initially */
-  height: 0; /* Initially hide the dropdown */
-}
-
-/* Links inside the dropdown */
-.mobile-list a {
-    color: black;
-    padding: 5px 5px;
-    text-decoration: none;
-    display: block;
-}
-  
-  /* Change color of dropdown links on hover */
-.mobile-list a:hover {
-    background-color: #ddd;
-}
-  
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-/* Show the dropdown menu */
-.show {
-  height: auto; /* Let the content determine the height */
-  padding-top: 10px; /* Adjust as needed */
-}
-
-.favorite-logo {
-  height: 40px;
-  width: 40px;
-}
-
-.favorite-logo-container {
-  height: 60px;
-  width: 60px;
+.calender-holder {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  border-radius: 10px; /* Add border-radius here */
+  overflow: hidden;
 }
 
+.calender-header {
+  margin: 0;
+  text-align: center;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.calender-holder-flex {
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensure no overflow issues */
+}
+
+.date-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Ensure no overflow issues */
+  border-radius: 10px; /* Add border-radius here */
+  border: 1px rgb(187, 187, 187) solid;
+}
+
+.grid-item {
+  height: 75px;
+  width: 75px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  box-shadow: 1px 2px 3px -2px rgba(0, 0, 0, 0.3);
+}
+
+.date-list h1, .date-list h2 {
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.grid-item h1 {
+  font-size: 20px;
+  color: rgb(83, 83, 83);
+}
+
+.grid-item h2 {
+  font-size: 35px;
+  height: 40px;
+}
+
+.grid-item div {
+  text-align: center;
+}
+
+.day-of-week {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222222;
+  box-shadow: 0px 2px 3px -2px rgba(0, 0, 0, 0.3);
+}
+
+.day-of-week h1 {
+  font-size: 25px;
+  color: white;
+}

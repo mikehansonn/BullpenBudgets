@@ -19,7 +19,7 @@ body {
     gap: 20px;
 }
 
-.next-to-logo-container h1 {
+.team-name {
     margin: 0;
     line-height: 1;
 }
@@ -41,20 +41,23 @@ body {
 
 .table-container {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    gap: 5%;
 }
 
 /* table stuff */
 .table {
-    width: 95%;
+    width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
 }
 .table th,
 .table td {
-    padding: 12px 15px;
+    padding: 8px 10px;
     text-align: left;
     font-family: "Kanit", sans-serif;
+    text-align: center;
+    width: 10%;
 }
 .table th {
     background-color: rgb(34, 34, 34);
@@ -62,6 +65,14 @@ body {
     box-shadow: 0px 2px 3px -2px rgba(0, 0, 0, 0.3);
     color: white;
     font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.table th.sort-asc::after {
+    content: " \25B2"; /* Unicode for upward arrow */
+}
+.table th.sort-desc::after {
+    content: " \25BC"; /* Unicode for downward arrow */
 }
 .table tbody tr:nth-child(even) {
     background-color: #e4e4e4;
@@ -70,6 +81,9 @@ body {
     border-bottom: 1px solid #c2c2c2;
     border-right: 1px solid #c2c2c2;
     border-left: 1px solid #c2c2c2;
+}
+.table tbody tr:hover {
+    background-color: #db8080;
 }
 
 /* star icon stuff */
@@ -101,4 +115,59 @@ body {
     background-color: rgb(227, 227, 227);
     border-radius: 50%;
     cursor: pointer;
+}
+
+.date5 {
+    border-left: 1px solid #c2c2c2;
+}
+
+.name {
+    border-right: 1px solid #c2c2c2;
+}
+
+.main-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.main-container-center {
+    width: 70%;
+}
+
+@media (max-width: 1350px) {
+    .table {
+        width: 97%;
+        padding-bottom: 20px;
+    }
+    .table-container {
+        display: block;
+    }
+    .team-logo {
+        height: 150px;
+        width: 150px;
+    }
+    .header-container h1 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 875px) {
+    .team-logo {
+        height: 75px;
+        width: 75px;
+    }
+    .header-container {
+        justify-content: center;
+    }
+    .header-container h1 {
+        font-size: 25px;
+    }
+    .main-container-center {
+        width: 100%;
+    }
+    .table {
+        width: 100%;
+    }
 }

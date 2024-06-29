@@ -1,19 +1,20 @@
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function dropdown() {
-    document.getElementById("mobileList").classList.toggle("show");
-}
-  
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.hamburger-icon')) {
-        var dropdowns = document.getElementsByClassName("mobile-list");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
+function calculateBG() {
+    const gridItems = document.querySelectorAll('.grid-item');
+
+    gridItems.forEach(item => {
+        const h2Element = item.querySelector('h2');
+        if (h2Element) {
+            const number = parseInt(h2Element.textContent, 10);
+            if (!isNaN(number)) {
+                if (number >= 70) {
+                    item.style.backgroundColor = '#e05353';
+                } else if (number >= 50) {
+                    item.style.backgroundColor = '#d5d966';
+                } else if (number > 0) {
+                    item.style.backgroundColor = '#7bdb8b';
+                }
             }
         }
-    }
+    });
 }
+window.onload = calculateBG;

@@ -43,6 +43,10 @@ body {
 }
 
 @media (max-width: 1350px) {
+    .header-hold {
+        height: 0px;
+        display: none;
+    }
     .site-header {
         font-size: 60px;    
     }
@@ -56,6 +60,10 @@ body {
 
     .teams-list-div-center {
         display: block;
+    }
+
+    .division-name-list {
+        padding-bottom: 50px;
     }
 
     .division-list {
@@ -114,18 +122,16 @@ body {
     width: 400px; 
 	display: flex;
 	align-items: center;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right: 2px solid rgb(241, 239, 239);
-    border-left: 2px solid rgb(241, 239, 239);
     gap: 40px;
     transition: background-color 0.3s ease;
+    background-color: rgb(228, 228, 228);
+    box-shadow: 2px 2px 3px -2px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 .class-item:hover {
     background-color: rgb(204, 204, 204);
-    border-right: 2px solid black;
-    border-left: 2px solid black;
 }
 
 .logo-image {

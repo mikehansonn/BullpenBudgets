@@ -1,6 +1,6 @@
 import DataParser
 import League
-from datetime import datetime as dt
+import datetime
 
 
 def parse_new_date(url):
@@ -17,9 +17,9 @@ def sum_data():
 
 def convert_date(string):
     split_url = string.split("/")
-    ordinal = dt.strptime(split_url[-2], '%Y-%m-%d').date()
-    return ordinal.toordinal()
+    epoch_date = datetime.date(1970, 1, 1)
+    target_date = datetime.datetime.strptime(split_url[-2], '%Y-%m-%d').date()
+    return (target_date - epoch_date).days
 
-
-for i in range(8):
-    parse_new_date('https://plaintextsports.com/mlb/2024-04-1' + str(i) + '/')
+# parse_new_date('https://plaintextsports.com/mlb/2024-06-0' + str(i) + '/')
+parse_new_date('https://plaintextsports.com/mlb/2024-06-07/')

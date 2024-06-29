@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+import datetime
 # used to change the stats to prep read to file
 # name, last 5 game days outings, last 3 days/7 day/14 days
 
@@ -20,15 +20,16 @@ class Player:
         return self.__dict__
     
     def calculate_past_days(self):
-        current_date = datetime.now()
-        current_ordinal_date = current_date.toordinal()
+        epoch_date = datetime.date(1970, 1, 1)
+        target_date = datetime.date.today()
+        ordinal_date_from_epoch = (target_date - epoch_date).days
 
         three = 0
         seven = 0
         fourteen = 0
 
         for outing in self.all_outings:  # outing is [count, date]
-            difference = current_ordinal_date - outing[1]
+            difference = ordinal_date_from_epoch - outing[1]
 
             pitches = int(outing[0])
             if difference <= 14:
