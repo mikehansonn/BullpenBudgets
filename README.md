@@ -2,7 +2,7 @@
 
 Demo URL: https://bullpenbudgets.com/
 
-Demo Video: 
+Demo Video: https://github.com/user-attachments/assets/ec93ea52-9255-4ebc-a746-8ea6277c4136
 
 Bullpen Budgets is an MLB analytics platform designed for analysts and bettors who need advanced statistics about bullpen health and usage across all 30 MLB teams. The application provides comprehensive data about pitcher workload, recent usage patterns, and historical trends.
 
