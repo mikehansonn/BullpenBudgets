@@ -8,7 +8,7 @@ const getBaseUrl = () => {
                   
   return isLocal 
     ? 'http://localhost:8000'
-    : 'https://chaos-ff-api-62fa41b772fd.herokuapp.com';
+    : 'https://bullpenbudgets.onrender.com';
 };
 
 const api = axios.create({
