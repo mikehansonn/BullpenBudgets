@@ -6,7 +6,7 @@ import os
 
 load_dotenv()
 
-MONGODB_URL = "mongodb+srv://michaelhanson2030:325220@src.w343v.mongodb.net/"
+MONGODB_URL = os.getenv("MONGODB_URL")
 
 client = AsyncIOMotorClient(MONGODB_URL, server_api=ServerApi('1'))
 db = client.get_database("src")
