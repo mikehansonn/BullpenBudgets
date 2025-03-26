@@ -1,13 +1,18 @@
-from fastapi import FastAPI, HTTPException, Depends
+from fastapi import FastAPI, HTTPException, Depends, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from typing import List
+import asyncio
+import logging
+from datetime import datetime
 
 from workers.db import get_database, ping_database
 import workers.async_worker as async_worker
 from api.player import PlayerAPIService, PlayerModel
 
-# Create FastAPI app
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 app = FastAPI(
     title="MLB Player Stats API",
     description="API for accessing MLB player pitching statistics",
@@ -23,12 +28,26 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-# Dependency to get API service
+async def heartbeat():
+    while True:
+        try:
+            logger.info(f"Heartbeat ping at {datetime.now()}")
+            await ping_database()
+            logger.info("Database connection successful")
+        except Exception as e:
+            logger.error(f"Heartbeat error: {str(e)}")
+        
+        await asyncio.sleep(840)
+
+@app.on_event("startup")
+async def startup_event():
+    asyncio.create_task(heartbeat())
+    logger.info("Heartbeat background task started")
+
 def get_player_service() -> PlayerAPIService:
     database = get_database()
     return PlayerAPIService(database)
 
-# Routes
 @app.get("/", tags=["Root"])
 async def root():
     return {"message": "Welcome to the MLB Player Stats API"}
