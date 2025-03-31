@@ -2,7 +2,6 @@ import asyncio
 from datetime import datetime
 from workers.db import get_database
 import workers.data_parser as data_parser
-import workers.controller
 import re
 
 async def update_player_data(player_data, date_str):
@@ -24,6 +23,7 @@ async def update_player_data(player_data, date_str):
     
     if existing_player:
         # Update existing player
+
         update_data = {
             "$set": {"team": team},
             "$push": {"outings": current_outing}
@@ -66,18 +66,16 @@ async def process_mlb_data(url):
 
 
 async def worker_main():
-    from datetime import date
+    from datetime import date, timedelta
     
-    # Get today's date
-    today = date.today()
-    # date_str = today.strftime('%Y-%m-%d')
-    for i in range(10, 30):
-        date_str = "2024-06-" + str(i)
+    today = date.today() - timedelta(days=1)
+    date_str = today.strftime('%Y-%m-%d')
     
-        # Construct URL for today
-        url = f'https://plaintextsports.com/mlb/{date_str}/'
-        
-        await process_mlb_data(url)
+    # Construct URL for today
+    url = f'https://plaintextsports.com/mlb/{date_str}/'
+    
+    await process_mlb_data(url)
+    print(f"Successfully processed MLB data for {date_str}")
 
 
 # Example of how to run the worker

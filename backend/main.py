@@ -5,10 +5,16 @@ from typing import List
 import asyncio
 import logging
 from datetime import datetime
+import pytz
+
+# Import APScheduler
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.triggers.cron import CronTrigger
 
 from workers.db import get_database, ping_database
 import workers.async_worker as async_worker
 from api.player import PlayerAPIService, PlayerModel
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -18,6 +24,9 @@ app = FastAPI(
     description="API for accessing MLB player pitching statistics",
     version="1.0.0"
 )
+
+# Create scheduler
+scheduler = AsyncIOScheduler()
 
 # Add CORS middleware
 app.add_middleware(
@@ -37,12 +46,32 @@ async def heartbeat():
         except Exception as e:
             logger.error(f"Heartbeat error: {str(e)}")
         
-        await asyncio.sleep(840)
+        await asyncio.sleep(60)
 
 @app.on_event("startup")
 async def startup_event():
+    # Start heartbeat task
     asyncio.create_task(heartbeat())
     logger.info("Heartbeat background task started")
+    
+    # Schedule the daily worker task at 5:00 AM EST
+    eastern = pytz.timezone('US/Eastern')
+    scheduler.add_job(
+        async_worker.worker_main,
+        CronTrigger(hour=5, minute=0, timezone=eastern),
+        name="daily_mlb_update",
+        id="daily_mlb_update"
+    )
+    
+    # Start the scheduler
+    scheduler.start()
+    logger.info("Scheduler started - worker_main will run daily at 5:00 AM EST")
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    # Shut down the scheduler when the app stops
+    scheduler.shutdown()
+    logger.info("Scheduler shut down")
 
 def get_player_service() -> PlayerAPIService:
     database = get_database()
@@ -87,6 +116,28 @@ async def update_data(date_str: str):
         return {"status": "success", "message": f"Updated data for {date_str}"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error updating data: {str(e)}")
+
+# Add an endpoint to trigger the job manually if needed
+@app.post("/api/run-worker", tags=["Admin"])
+async def run_worker_manually():
+    try:
+        await async_worker.worker_main()
+        return {"status": "success", "message": "Worker job triggered successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error running worker: {str(e)}")
+
+# Add an endpoint to view scheduled jobs
+@app.get("/api/scheduled-jobs", tags=["Admin"])
+async def get_scheduled_jobs():
+    jobs = []
+    for job in scheduler.get_jobs():
+        jobs.append({
+            "id": job.id,
+            "name": job.name,
+            "next_run_time": job.next_run_time.strftime("%Y-%m-%d %H:%M:%S %Z"),
+            "trigger": str(job.trigger)
+        })
+    return {"jobs": jobs}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

@@ -61,6 +61,7 @@ def parse_box_score(url):
 def parse_scores_page(url):
     start_url = "https://plaintextsports.com"
     response = requests.get(url)
+    print(response.content)
     soup = BeautifulSoup(response.content, 'html.parser')
     teams = soup.find_all('a', class_='text-fg no-underline')
     new_data = []
