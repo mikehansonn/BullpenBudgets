@@ -22,19 +22,24 @@ const prepareLastXDays = (players, numDays) => {
   
   if (!mostRecentDate) return [];
   
-  // Generate array of the last X days (including the most recent)
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(yesterday.getDate() - 1);
+  
   const lastXDays = [];
   for (let i = 0; i < numDays; i++) {
-    const day = new Date(mostRecentDate);
+    const day = new Date(yesterday);
     day.setDate(day.getDate() - i);
     
-    // Format as MM/DD
-    const month = day.getMonth() + 1; // getMonth is 0-indexed
+    const month = day.getMonth() + 1;
     const date = day.getDate();
     const formattedDate = `${month}/${date}`;
     
+    // Use local date formatting for fullDate
+    const fullDate = `${day.getFullYear()}-${String(month).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+    
     lastXDays.push({
-      fullDate: day.toISOString().split('T')[0], // YYYY-MM-DD format for comparison
+      fullDate: fullDate, 
       displayDate: formattedDate
     });
   }
@@ -42,7 +47,6 @@ const prepareLastXDays = (players, numDays) => {
   return lastXDays;
 };
 
-// This function prepares the pitch data for the bullpen budget table
 const prepareBullpenData = (players, lastXDays) => {
   const bullpenData = [];
   
