@@ -47,6 +47,26 @@ const prepareLastXDays = (players, numDays) => {
   return lastXDays;
 };
 
+// Helper function to convert baseball IP notation to outs
+const ipToOuts = (ipValue) => {
+  if (!ipValue && ipValue !== 0) return 0;
+  
+  const ipString = ipValue.toString();
+  const parts = ipString.split('.');
+  const fullInnings = parseInt(parts[0] || 0);
+  const partialInnings = parts.length > 1 ? parseInt(parts[1] || 0) : 0;
+  
+  // Each full inning is 3 outs
+  return (fullInnings * 3) + partialInnings;
+};
+
+// Helper function to convert outs back to baseball IP notation
+const outsToIP = (outs) => {
+  const fullInnings = Math.floor(outs / 3);
+  const remainingOuts = outs % 3;
+  return fullInnings + (remainingOuts / 10);
+};
+
 const prepareBullpenData = (players, lastXDays) => {
   const bullpenData = [];
   
@@ -64,7 +84,7 @@ const prepareBullpenData = (players, lastXDays) => {
       hasPitchedInLastXDays: false,
       totalOutings: 0, // Track number of outings in the period
       totalPitches: 0,
-      totalIP: 0,
+      totalOuts: 0, // Track outs instead of IP for accurate summation
       totalK: 0,
       avgPitchesPerOuting: 0
     };
@@ -90,9 +110,12 @@ const prepareBullpenData = (players, lastXDays) => {
         playerRecord.dailyPitches[outingFullDate] = pitches;
         playerRecord.totalPitches += pitches;
         
-        const ip = parseFloat(outing.IP) || 0;
-        playerRecord.dailyIP[outingFullDate] = ip;
-        playerRecord.totalIP += ip;
+        // Convert IP to outs for accurate tracking
+        const outingOuts = ipToOuts(outing.IP);
+        // Store the proper baseball notation for display
+        playerRecord.dailyIP[outingFullDate] = outing.IP ? parseFloat(outing.IP) : 0;
+        // Add to total outs for accurate summation
+        playerRecord.totalOuts += outingOuts;
         
         const k = parseInt(outing.K) || 0;
         playerRecord.dailyK[outingFullDate] = k;
@@ -113,6 +136,9 @@ const prepareBullpenData = (players, lastXDays) => {
     if (playerRecord.totalOutings > 0) {
       playerRecord.avgPitchesPerOuting = (playerRecord.totalPitches / playerRecord.totalOutings).toFixed(1);
     }
+    
+    // Convert total outs back to baseball IP notation
+    playerRecord.totalIP = outsToIP(playerRecord.totalOuts);
     
     // Only add players who have pitched in the period
     if (playerRecord.hasPitchedInLastXDays) {
@@ -178,6 +204,12 @@ const BullpenBudgetTab = ({ players, team }) => {
   // Handle tab change
   const handlePeriodChange = (period) => {
     setActivePeriod(period);
+  };
+  
+  // Calculate team total innings pitched (combining all outs properly)
+  const calculateTeamTotalIP = () => {
+    const totalOuts = sortedBullpenData.reduce((sum, player) => sum + player.totalOuts, 0);
+    return outsToIP(totalOuts);
   };
   
   return (
@@ -312,7 +344,7 @@ const BullpenBudgetTab = ({ players, team }) => {
                 </td>
                 <td className="py-3 px-4"></td>
                 <td className="py-3 px-4 text-sm text-center font-bold">
-                  {sortedBullpenData.reduce((sum, player) => sum + player.totalIP, 0).toFixed(1)}
+                  {calculateTeamTotalIP().toFixed(1)}
                 </td>
                 <td className="py-3 px-4 text-sm text-center font-bold">
                   {sortedBullpenData.reduce((sum, player) => sum + player.totalK, 0)}

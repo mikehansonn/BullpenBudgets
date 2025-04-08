@@ -64,7 +64,7 @@ async def process_mlb_data(url):
 async def worker_main():
     from datetime import date, timedelta
     
-    start_date = datetime(2025, 4, 6)
+    start_date = datetime(2025, 4, 7)
     for i in range(1):
         date_str = start_date.strftime('%Y-%m-%d')
         url = f'https://plaintextsports.com/mlb/{date_str}/'

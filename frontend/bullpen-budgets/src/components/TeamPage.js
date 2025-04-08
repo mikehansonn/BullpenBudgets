@@ -13,7 +13,6 @@ function TeamPage() {
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [activeTab, setActiveTab] = useState('bullpenBudget'); // 'playerDetails' or 'staffOverview'
   
-  // Find team details
   const team = getAllTeams().find(t => t.id === teamName) || { name: teamName, color: '#333' };
 
   useEffect(() => {
@@ -50,7 +49,6 @@ function TeamPage() {
       }));
   };
 
-  // Prepare pitcher usage chart data
   const prepareUsageChartData = (player) => {
     if (!player) return [];
     return preparePitcherUsageChartData(player, players);
@@ -83,45 +81,62 @@ function TeamPage() {
   const chartData = selectedPlayer ? prepareChartData(selectedPlayer) : [];
   const usageChartData = selectedPlayer ? prepareUsageChartData(selectedPlayer) : [];
   
-  // Get average ERA for selected player
-  const averageERA = selectedPlayer && selectedPlayer.outings.length > 0
-    ? (selectedPlayer.outings.reduce((total, outing) => total + parseFloat(outing.ERA || 0), 0) / selectedPlayer.outings.length).toFixed(2)
-    : 'N/A';
+  console.log(selectedPlayer.outings);
+  const averageERA = selectedPlayer.outings[selectedPlayer.outings.length - 1]['ERA'];
   
-  // Get total strikeouts for selected player
   const totalStrikeouts = selectedPlayer && selectedPlayer.outings.length > 0
     ? selectedPlayer.outings.reduce((total, outing) => total + parseInt(outing.K || 0), 0)
     : 'N/A';
   
-  // Get usage metric for selected player
   const usageMetric = selectedPlayer ? calculatePitcherUsage(selectedPlayer, players) : null;
     
-  // Calculate team stats
   const calculateTeamStats = () => {
     if (!players.length) return { teamERA: 0, totalIP: 0, totalER: 0 };
     
-    let totalIP = 0;
+    let totalOuts = 0;
     let totalER = 0;
     
     players.forEach(player => {
       if (player.outings && player.outings.length) {
+        totalOuts += sumPlayerOuts(player.outings);
         player.outings.forEach(outing => {
-          // Add innings pitched (convert to decimal if needed)
-          const ipValue = parseFloat(outing.IP);
-          totalIP += !isNaN(ipValue) ? ipValue : 0;
           
-          // Add earned runs
           const erValue = parseInt(outing.ER);
           totalER += !isNaN(erValue) ? erValue : 0;
         });
       }
     });
-    
-    // Calculate team ERA: (ER / IP) * 9
-    const teamERA = totalIP > 0 ? ((totalER / totalIP) * 9).toFixed(2) : 0;
+    const totalIP = calculateNumberOfInnings(totalOuts);
+
+    const teamERA = totalIP > 0 ? ((totalER / displayInningsToERAInnings(totalIP)) * 9).toFixed(2) : 0;
     
     return { teamERA, totalIP: totalIP.toFixed(1), totalER };
   };
+
+  const sumPlayerOuts = (playerStats) => {
+    var totalOuts = 0;
+
+    playerStats.forEach(outing => {
+        const fullOuts = Math.floor(outing.IP / 1) * 3;
+        const extraOuts = (outing.IP % 1) * 10;
+        totalOuts = totalOuts + fullOuts + extraOuts;
+      }
+    );
+
+    return totalOuts;
+  }
+
+  const calculateNumberOfInnings = (totalOuts) => {
+    const extra = (totalOuts % 3) / 10;
+    const completeInnings = Math.floor(totalOuts / 3);
+    return (extra + completeInnings);
+  }
+
+  const displayInningsToERAInnings = (totalIP) => {
+    const extraOuts = parseFloat(totalIP) % 1;
+    const IP = totalIP - extraOuts + ((extraOuts*10) * (1/3));
+    return IP
+  }
   
   const teamStats = calculateTeamStats();
 
@@ -242,21 +257,21 @@ function TeamPage() {
                       <th className="py-3 px-4 bg-gray-100 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">K</th>
                       <th className="py-3 px-4 bg-gray-100 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">HR</th>
                       <th className="py-3 px-4 bg-gray-100 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">ERA</th>
-                      <th className="py-3 px-4 bg-gray-100 text-left text-xs font-medium text-gray-600 uppercase tracking-wider rounded-tr-lg">Usage Score</th>
+                      <th className="py-3 px-4 bg-gray-100 text-xs font-medium text-gray-600 uppercase tracking-wider rounded-tr-lg">Usage Score</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
                     {players.map((player) => {
                       // Calculate player stats
                       const appearances = player.outings ? player.outings.length : 0;
-                      const totalIP = player.outings ? player.outings.reduce((sum, o) => sum + parseFloat(o.IP || 0), 0).toFixed(1) : 0;
+                      const totalIP = player.outings ? calculateNumberOfInnings(sumPlayerOuts(player.outings)) : 0;
                       const totalH = player.outings ? player.outings.reduce((sum, o) => sum + parseInt(o.H || 0), 0) : 0;
                       const totalR = player.outings ? player.outings.reduce((sum, o) => sum + parseInt(o.R || 0), 0) : 0;
                       const totalER = player.outings ? player.outings.reduce((sum, o) => sum + parseInt(o.ER || 0), 0) : 0;
                       const totalBB = player.outings ? player.outings.reduce((sum, o) => sum + parseInt(o.BB || 0), 0) : 0;
                       const totalK = player.outings ? player.outings.reduce((sum, o) => sum + parseInt(o.K || 0), 0) : 0;
                       const totalHR = player.outings ? player.outings.reduce((sum, o) => sum + parseInt(o.HR || 0), 0) : 0;
-                      const playerERA = parseFloat(totalIP) > 0 ? ((totalER / parseFloat(totalIP)) * 9).toFixed(2) : 'N/A';
+                      const playerERA = parseFloat(totalIP) > 0 ? ((totalER / displayInningsToERAInnings(totalIP)) * 9).toFixed(2) : 'N/A';
                       
                       // Calculate usage score
                       const usage = calculatePitcherUsage(player, players);
@@ -279,7 +294,7 @@ function TeamPage() {
                           <td className="py-3 px-4 text-sm text-gray-700">{totalK}</td>
                           <td className="py-3 px-4 text-sm text-gray-700">{totalHR}</td>
                           <td className="py-3 px-4 text-sm font-medium" style={{ color: team.color }}>{playerERA}</td>
-                          <td className="py-3 px-4 text-sm font-medium"
+                          <td className="py-3 text-center px-4 text-sm font-medium"
                               style={{ 
                                 color: usage && usage.isHighUsage ? '#e53e3e' : 
                                       usage && usage.isLowUsage ? '#38a169' : '#4a5568' 
