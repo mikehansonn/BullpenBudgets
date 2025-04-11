@@ -1,11 +1,11 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from db import get_database
 import data_parser as data_parser
 import re
 
 async def update_player_data(player_data, date_str):
     db = get_database()
-    players_collection = db.players
+    players_collection = db.tplayers
     
     # Format the date
     outing_date = datetime.strptime(date_str, '%Y-%m-%d').date()
@@ -22,7 +22,6 @@ async def update_player_data(player_data, date_str):
     
     if existing_player:
         # Update existing player
-
         update_data = {
             "$set": {"team": team},
             "$push": {"outings": current_outing}
@@ -48,23 +47,19 @@ async def process_mlb_data(url):
     
     date_str = date_match.group(1)
     
-    # Use the controller to parse data
-    # We'll modify this to be async-friendly
+    # Use the Selenium parser to get data
+    # This is a synchronous function so we don't need to await it
     player_data_list = data_parser.parse_scores_page(url)
     
     # Process each player's data
-    tasks = []
     for player_data in player_data_list:
-        task = await update_player_data(player_data, date_str)
-        tasks.append(task)
+        await update_player_data(player_data, date_str)
     
     print(f"Completed processing {len(player_data_list)} player records for {date_str}")
 
 
 async def worker_main():
-    from datetime import date, timedelta
-    
-    start_date = datetime(2025, 4, 7)
+    start_date = datetime(2025, 4, 8)
     for i in range(1):
         date_str = start_date.strftime('%Y-%m-%d')
         url = f'https://plaintextsports.com/mlb/{date_str}/'
