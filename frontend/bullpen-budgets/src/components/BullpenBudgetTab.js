@@ -260,7 +260,7 @@ const BullpenBudgetTab = ({ players, team }) => {
         <div className="overflow-x-auto bg-gray-50 rounded-lg">
           <table className="min-w-full">
             <thead>
-              <tr>
+              <tr className='whitespace-nowrap'>
                 <th className="py-3 px-4 bg-gray-100 text-left text-xs font-medium text-gray-600 uppercase tracking-wider sticky left-0 rounded-tl-lg">Pitcher</th>
                 <th className="py-3 px-4 bg-gray-100 text-center text-xs font-medium text-gray-600 uppercase tracking-wider">Outings</th>
                 <th className="py-3 px-4 bg-gray-100 text-center text-xs font-medium text-gray-600 uppercase tracking-wider">Days Since Last</th>
@@ -283,7 +283,7 @@ const BullpenBudgetTab = ({ players, team }) => {
                 const daysSinceLastPitched = calculateDaysSinceLastPitched(player.dailyPitches, lastXDays);
                 
                 return (
-                  <tr key={player.id} className="hover:bg-blue-50 transition-colors duration-150">
+                  <tr key={player.id} className="hover:bg-blue-50 transition-colors whitespace-nowrap duration-150">
                     <td className="py-3 px-4 text-sm text-gray-800 font-medium sticky left-0 bg-white">{player.name}</td>
                     <td className="py-3 px-4 text-sm text-center">{player.totalOutings}</td>
                     <td className={`py-3 px-4 text-sm text-center ${

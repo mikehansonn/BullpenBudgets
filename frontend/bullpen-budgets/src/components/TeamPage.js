@@ -56,8 +56,20 @@ function TeamPage() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen bg-gray-50">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-600"></div>
+      <div className="flex justify-center items-center h-screen bg-gray-100">
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex space-x-3">
+            <div className="w-4 h-4 bg-indigo-600 rounded-full animate-bounce" 
+                style={{ animationDelay: '0ms', animationDuration: '0.8s' }}></div>
+            <div className="w-4 h-4 bg-indigo-600 rounded-full animate-bounce" 
+                style={{ animationDelay: '150ms', animationDuration: '0.8s' }}></div>
+            <div className="w-4 h-4 bg-indigo-600 rounded-full animate-bounce" 
+                style={{ animationDelay: '300ms', animationDuration: '0.8s' }}></div>
+            <div className="w-4 h-4 bg-indigo-600 rounded-full animate-bounce" 
+                style={{ animationDelay: '450ms', animationDuration: '0.8s' }}></div>
+          </div>
+          <div className="text-gray-600 font-medium tracking-wide">Loading...</div>
+        </div>
       </div>
     );
   }

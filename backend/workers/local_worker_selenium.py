@@ -77,8 +77,8 @@ async def process_mlb_data(url):
 
 async def worker_main():
     # Set your date range as needed
-    start_date = datetime(2025, 4, 8)
-    end_date = datetime(2025, 4, 10)  # Current date
+    start_date = datetime(2025, 4, 15)
+    end_date = datetime(2025, 4, 18)  # Current date
     
     current_date = start_date
     while current_date <= end_date:
