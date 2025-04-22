@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getTeamPlayers, getAllTeams } from '../api/apiService';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { calculatePitcherUsage, preparePitcherUsageChartData } from '../utils/PitcherUsageMetric';
