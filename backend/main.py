@@ -7,7 +7,6 @@ import logging
 from datetime import datetime
 import pytz
 
-# Import APScheduler
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 
@@ -25,7 +24,6 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Create scheduler
 scheduler = AsyncIOScheduler()
 
 # Add CORS middleware
@@ -37,23 +35,8 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-async def heartbeat():
-    while True:
-        try:
-            logger.info(f"Heartbeat ping at {datetime.now()}")
-            await ping_database()
-            logger.info("Database connection successful")
-        except Exception as e:
-            logger.error(f"Heartbeat error: {str(e)}")
-        
-        await asyncio.sleep(60)
-
 @app.on_event("startup")
-async def startup_event():
-    # Start heartbeat task
-    asyncio.create_task(heartbeat())
-    logger.info("Heartbeat background task started")
-    
+async def startup_event():    
     # Schedule the daily worker task at 5:00 AM EST
     eastern = pytz.timezone('US/Eastern')
     scheduler.add_job(
@@ -63,13 +46,11 @@ async def startup_event():
         id="daily_mlb_update"
     )
     
-    # Start the scheduler
     scheduler.start()
     logger.info("Scheduler started - worker_main will run daily at 5:00 AM EST")
 
 @app.on_event("shutdown")
 async def shutdown_event():
-    # Shut down the scheduler when the app stops
     scheduler.shutdown()
     logger.info("Scheduler shut down")
 
@@ -117,7 +98,6 @@ async def update_data(date_str: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error updating data: {str(e)}")
 
-# Add an endpoint to trigger the job manually if needed
 @app.post("/api/run-worker", tags=["Admin"])
 async def run_worker_manually():
     try:
@@ -126,7 +106,6 @@ async def run_worker_manually():
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error running worker: {str(e)}")
 
-# Add an endpoint to view scheduled jobs
 @app.get("/api/scheduled-jobs", tags=["Admin"])
 async def get_scheduled_jobs():
     jobs = []
