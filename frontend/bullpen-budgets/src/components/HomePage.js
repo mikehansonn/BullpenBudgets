@@ -46,7 +46,7 @@ function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {filteredTeams.map((team) => (
             <Link 
-              to={`/team/${team.id}`} 
+              to={`/team?id=${team.id}`} 
               key={team.id}
               className="group"
             >

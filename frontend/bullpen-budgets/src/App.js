@@ -17,7 +17,7 @@ function App() {
         <main className="container mx-auto p-4">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/team/:teamName" element={<TeamPage />} />
+            <Route path="/team" element={<TeamPage />} />
           </Routes>
         </main>
         <footer className="bg-gray-200 p-4 text-center mt-8">

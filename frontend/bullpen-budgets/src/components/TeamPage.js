@@ -6,7 +6,7 @@ import { calculatePitcherUsage, preparePitcherUsageChartData } from '../utils/Pi
 import BullpenBudgetTab from './BullpenBudgetTab';
 
 function TeamPage() {
-  const { teamName } = useParams();
+  const [teamName, setTeamName] = useState();
   const [players, setPlayers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,7 +19,11 @@ function TeamPage() {
     const fetchTeamPlayers = async () => {
       try {
         setLoading(true);
-        const playersData = await getTeamPlayers(teamName);
+        const queryParams = new URLSearchParams(window.location.search);
+        const currentTeamName = queryParams.get('id')
+        setTeamName(queryParams.get('id'));
+
+        const playersData = await getTeamPlayers(currentTeamName);
         setPlayers(playersData);
         if (playersData.length > 0) {
           setSelectedPlayer(playersData[0]);
@@ -93,7 +97,6 @@ function TeamPage() {
   const chartData = selectedPlayer ? prepareChartData(selectedPlayer) : [];
   const usageChartData = selectedPlayer ? prepareUsageChartData(selectedPlayer) : [];
   
-  console.log(selectedPlayer.outings);
   const averageERA = selectedPlayer.outings[selectedPlayer.outings.length - 1]['ERA'];
   
   const totalStrikeouts = selectedPlayer && selectedPlayer.outings.length > 0
