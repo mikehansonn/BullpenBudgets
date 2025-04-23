@@ -1,7 +1,7 @@
 import asyncio
 from datetime import datetime
 from workers.db import get_database
-import workers.data_parser as data_parser
+import workers.data_parser_selenium as data_parser
 import re
 
 async def update_player_data(player_data, date_str):
@@ -22,16 +22,23 @@ async def update_player_data(player_data, date_str):
     existing_player = await players_collection.find_one({"name": player_name})
     
     if existing_player:
-        # Update existing player
-
-        update_data = {
-            "$set": {"team": team},
-            "$push": {"outings": current_outing}
-        }
-        await players_collection.update_one({"_id": existing_player["_id"]}, update_data)
-        print(f"Updated player: {player_name}")
+        date_exists = False
+        if "outings" in existing_player:
+            for outing in existing_player["outings"]:
+                if "date" in outing and outing["date"] == current_outing["date"]:
+                    date_exists = True
+                    break
+        
+        if not date_exists:
+            update_data = {
+                "$set": {"team": team},
+                "$push": {"outings": current_outing}
+            }
+            await players_collection.update_one({"_id": existing_player["_id"]}, update_data)
+            print(f"Updated player: {player_name}")
+        else:
+            print(f"Skipped player {player_name} - outing for {current_outing['date']} already exists")
     else:
-        # Create new player entry
         new_player = {
             "name": player_name,
             "team": team,
